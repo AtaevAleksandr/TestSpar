@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct SparTestApp: App {
+
+    @StateObject private var reviewVM = ReviewViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
+                .environmentObject(reviewVM)
+                .preferredColorScheme(.light)
         }
     }
 }
