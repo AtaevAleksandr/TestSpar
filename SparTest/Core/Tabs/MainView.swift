@@ -114,75 +114,7 @@ struct MainView: View {
                         .padding(.horizontal)
                         .padding(.top, 20)
 
-                        VStack(spacing: 20) {
-                            HStack {
-                                Text("Производство")
-                                    .font(.footnote)
-                                    .padding(.horizontal)
-                                    .padding(.top)
-
-                                Spacer()
-
-                                Text("Россия, Краснодарский \nкрай")
-                                    .font(.footnote)
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.horizontal)
-                            }
-
-                            HStack {
-                                Text("Энергетическая \nценность, ккал/100г")
-                                    .font(.footnote)
-                                    .multilineTextAlignment(.leading)
-                                    .padding(.horizontal)
-
-                                Spacer()
-
-                                Text("25 ккал, 105 \nкДж")
-                                    .font(.footnote)
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.horizontal)
-                            }
-
-                            HStack {
-                                Text("Жиры/100 г")
-                                    .font(.footnote)
-                                    .padding(.horizontal)
-
-                                Spacer()
-
-                                Text("0,1 г")
-                                    .font(.footnote)
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.horizontal)
-                            }
-
-                            HStack {
-                                Text("Белки/100 г")
-                                    .font(.footnote)
-                                    .padding(.horizontal)
-
-                                Spacer()
-
-                                Text("1,3 г")
-                                    .font(.footnote)
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.horizontal)
-                            }
-
-                            HStack {
-                                Text("Углеводы/100 г")
-                                    .font(.footnote)
-                                    .padding(.horizontal)
-
-                                Spacer()
-
-                                Text("3,3 г")
-                                    .font(.footnote)
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.horizontal)
-                            }
-                        }
-                        .foregroundColor(.primary)
+                        DescriptionView()
 
                         HStack {
                             Button {
@@ -304,6 +236,95 @@ extension MainView {
     }
 }
 
+struct DescriptionView: View {
+    var dottedLine: String {
+            return String(repeating: ".", count: 1000)
+        }
+
+    var body: some View {
+        VStack(spacing: 20) {
+            HStack {
+                Text("Производство")
+                    .font(.footnote)
+                    .padding(.horizontal)
+                    .padding(.top)
+
+                Text(dottedLine)
+                    .layoutPriority(-1)
+                    .lineLimit(1)
+
+                Text("Россия, Краснодарский \nкрай")
+                    .font(.footnote)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal)
+                    .lineLimit(2)
+            }
+
+            HStack {
+                Text("Энергетическая \nценность, ккал/100г")
+                    .font(.footnote)
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal)
+
+                Text(dottedLine)
+                    .layoutPriority(-1)
+                    .lineLimit(1)
+
+                Text("25 ккал, 105 \nкДж")
+                    .font(.footnote)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal)
+                    .lineLimit(2)
+            }
+
+            HStack {
+                Text("Жиры/100 г")
+                    .font(.footnote)
+                    .padding(.horizontal)
+
+                Text(dottedLine)
+                    .layoutPriority(-1)
+
+                Text("0,1 г")
+                    .font(.footnote)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal)
+            }
+            .lineLimit(1)
+
+            HStack {
+                Text("Белки/100 г")
+                    .font(.footnote)
+                    .padding(.horizontal)
+
+                Text(dottedLine)
+                    .layoutPriority(-1)
+
+                Text("1,3 г")
+                    .font(.footnote)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal)
+            }
+            .lineLimit(1)
+
+            HStack {
+                Text("Углеводы/100 г")
+                    .font(.footnote)
+                    .padding(.horizontal)
+
+                Text(dottedLine)
+                    .layoutPriority(-1)
+
+                Text("3,3 г")
+                    .font(.footnote)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal)
+            }
+            .lineLimit(1)
+        }
+        .foregroundColor(.primary)
+    }
+}
 
 #Preview {
     MainView()
